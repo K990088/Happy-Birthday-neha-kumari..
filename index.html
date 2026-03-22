@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday NEHA 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff4d6d, #ff758c, #ffb3c1);
+  text-align: center;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Heading */
+h1 {
+  font-size: 3rem;
+  margin-top: 40px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 30px #ff1e56, 0 0 60px #ff1e56; }
+}
+
+/* Message */
+.message {
+  width: 85%;
+  margin: auto;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 20px;
+  transition: 0.5s;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.gallery img:hover {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* Button */
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #ff1e56;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 20px;
+}
+
+/* Hearts */
+.hearts {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+.heart {
+  position: absolute;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday NEHA 🎂</h1>
+
+<div class="message">
+  You are not just special, you are truly one of a kind 💖<br><br>
+  On your birthday, I just want to say that you mean more than words can ever express.<br><br>
+  May your life be filled with happiness, love, and endless beautiful moments ✨<br><br>
+  Keep smiling always… because your smile makes everything better 💕
+</div>
+
+<!-- Images -->
+<div class="gallery">
+  <img src="https://img.sanishtech.com/u/de409a9f2cbce0b3c2597e633dc75492.png">
+  <img src="https://i.ibb.co/dwvwsHhN/IMG-20240322-WA0000.jpg">
+  <img src="https://i.ibb.co/93tHzX0b/IMG-20240322-WA0001.jpg">
+  <img src="https://i.ibb.co/XrzC5bDb/IMG-20240322-WA0002.jpg">
+</div>
+
+<!-- Music -->
+<button onclick="playMusic()">Play Music 🎶</button>
+
+<audio id="music" src="https://files.catbox.moe/2l5t6d.mp3" loop></audio>
+
+<!-- Hearts -->
+<div class="hearts" id="hearts"></div>
+
+<script>
+function playMusic(){
+  let music = document.getElementById('music');
+  music.volume = 0;
+  music.play();
+
+  // Fade-in effect
+  let vol = 0;
+  let fade = setInterval(() => {
+    if (vol < 1) {
+      vol += 0.05;
+      music.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+}
+
+// Floating hearts
+setInterval(()=>{
+  let heart = document.createElement('div');
+  heart.className='heart';
+  heart.innerHTML='💖';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.fontSize=(20+Math.random()*20)+'px';
+  document.getElementById('hearts').appendChild(heart);
+  setTimeout(()=>heart.remove(),5000);
+},250);
+</script>
+
+</body>
+</html>
